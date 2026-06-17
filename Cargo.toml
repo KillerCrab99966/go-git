@@ -1,6 +1,8 @@
 [package]
 name = "go-git"
+description = "A program that creates or initialises a go project with git set up."
 version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+clap = "4.6.1"
