@@ -5,6 +5,10 @@ use clap::{Args, Parser, Subcommand};
 pub struct GoGitArgs {
     #[command(subcommand)]
     pub command: GoGitCommand,
+
+    #[arg(short, long)]
+    /// Don't initialise git (defaults to false)
+    pub git: bool,
 }
 
 #[derive(Debug, Subcommand)]

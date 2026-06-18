@@ -8,10 +8,10 @@ mod args;
 
 fn main() {
     // Get the user input
-    let args = GoGitArgs::parse();
+    let input = GoGitArgs::parse();
 
-    match args.command {
-        GoGitCommand::Init(args) => init(args.module_name),
+    match input.command {
+        GoGitCommand::Init(args) => init(args.module_name, !input.git),
         GoGitCommand::New(args) => {
             // Make the target dir
             create_dir(args.dir.clone()).expect("Failed to create target directory.");
@@ -19,18 +19,20 @@ fn main() {
             // Set the program's cwd to the new dir
             set_current_dir(args.dir).expect("Failed to change directory.");
 
-            init(args.module_name);
+            init(args.module_name, !input.git);
         }
     }
 }
 
-/// Initialises golang and git for the cwd.
-fn init(module_name: String) {
+/// Initialises golang and git (if `git`) for the cwd.
+fn init(module_name: String, git: bool) {
     // Initialise git
-    Command::new("git")
-        .arg("init")
-        .status()
-        .expect("Failed to initialise git.");
+    if git {
+        Command::new("git")
+            .arg("init")
+            .status()
+            .expect("Failed to initialise git.");
+    }
 
     // Initialise a golang module
     Command::new("go")
