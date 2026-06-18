@@ -1,4 +1,4 @@
-use crate::args::{GoGitArgs, GoGitCommand};
+use crate::args::{GoInitArgs, GoInitCommand};
 use clap::Parser;
 use std::env::set_current_dir;
 use std::fs::{create_dir, write};
@@ -8,15 +8,15 @@ mod args;
 
 fn main() {
     // Get the user input
-    let input = GoGitArgs::parse();
+    let input = GoInitArgs::parse();
 
     match input.command {
-        GoGitCommand::Init(args) => init(InitOptions {
+        GoInitCommand::Init(args) => init(InitOptions {
             module_name: args.module_name,
             git: !input.git,
             bin: input.bin,
         }),
-        GoGitCommand::New(args) => {
+        GoInitCommand::New(args) => {
             // Make the target dir
             create_dir(args.dir.clone()).expect("Failed to create target directory.");
 

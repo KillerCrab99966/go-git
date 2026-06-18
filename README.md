@@ -1,11 +1,11 @@
-# Go Git
+# Go Init
 
 A simple CLI written in Rust with the `clap` crate that creates or initialises a golang module and git with one command.
 
 ## Usage
 
 ```
-go-git [OPTIONS] <COMMAND>
+go-init [OPTIONS] <COMMAND>
 
 Commands:
   init  Initialises a golang module and git in the current directory
@@ -19,4 +19,4 @@ Options:
   -V, --version  Print version
 ```
 
-Run `go-git help [COMMAND]` for more info.
+Run `go-init help [COMMAND]` for more info.

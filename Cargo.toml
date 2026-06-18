@@ -1,5 +1,5 @@
 [package]
-name = "go-git"
+name = "go-init"
 description = "A program that creates or initialises a golang module and git."
 version = "1.0.0"
 edition = "2024"

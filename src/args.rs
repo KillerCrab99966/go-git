@@ -2,9 +2,9 @@ use clap::{Args, Parser, Subcommand};
 
 #[derive(Debug, Parser)]
 #[command(version, about)]
-pub struct GoGitArgs {
+pub struct GoInitArgs {
     #[command(subcommand)]
-    pub command: GoGitCommand,
+    pub command: GoInitCommand,
 
     /// Create a package with a main.go file.
     #[arg(short, long)]
@@ -16,7 +16,7 @@ pub struct GoGitArgs {
 }
 
 #[derive(Debug, Subcommand)]
-pub enum GoGitCommand {
+pub enum GoInitCommand {
     /// Initialises a golang module and git in the current directory.
     Init(InitArgs),
 
