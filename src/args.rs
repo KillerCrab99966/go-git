@@ -6,7 +6,7 @@ pub struct GoGitArgs {
     #[command(subcommand)]
     pub command: GoGitCommand,
 
-    /// Create a binary package with a main.go file.
+    /// Create a package with a main.go file.
     #[arg(short, long)]
     pub bin: bool,
 
@@ -17,10 +17,10 @@ pub struct GoGitArgs {
 
 #[derive(Debug, Subcommand)]
 pub enum GoGitCommand {
-    /// Initialises golang and git in the current directory.
+    /// Initialises a golang module and git in the current directory.
     Init(InitArgs),
 
-    /// Creates a new subdirectory and initialises it with golang and git.
+    /// Creates a new subdirectory and initialises it.
     New(NewArgs),
 }
 
