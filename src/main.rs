@@ -49,6 +49,8 @@ fn init(options: InitOptions) {
             .arg("init")
             .status()
             .expect("Failed to initialise git.");
+    } else {
+        eprintln!("Not initialising git.");
     }
 
     // Initialise a golang module
@@ -70,5 +72,6 @@ func main() {
     fmt.Println(\"Hello, 世界\")
 }";
 
-    write("main.go", hello_world).expect("Failed to create or write to main.go.")
+    write("main.go", hello_world).expect("Failed to create or write to main.go.");
+    eprintln!("Created main.go")
 }
